@@ -42,14 +42,19 @@ $ rm -rf fonts                                   # Delete fonts repo
 ```shell 
 $ git https://github.com/logicseed/monokai-pro-themes  # Clone repo
 ```
-7. Set monokai theme to iTerm2
+7. Set font and monokai theme to iTerm2
   - Go to iTerm2
   - Settings/Preferences
   - Profiles
-  - Colors
-  - Colors presets
-  - Import
-  - Import the file on the monokai repo inside of the iTerm2 folder
+  - ***Monokai:***
+    - Colors
+    - Colors presets
+    - Import
+    - Import the file on the monokai repo inside of the iTerm2 folder
+  - ***Font:***
+    - Text
+    - Font
+    - Select the font *Meslo LG M for Powerline*
 8. Remove monokai-pro-themes repo
 ```shell
 $ rm -rf monokai-pro-themes
