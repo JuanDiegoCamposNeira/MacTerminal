@@ -40,7 +40,7 @@ $ rm -rf fonts                                   # Delete fonts repo
 ```
 6. Add monokai color theme
 ```shell 
-$ git https://github.com/logicseed/monokai-pro-themes  # Clone repo
+$ git clone https://github.com/logicseed/monokai-pro-themes  # Clone repo
 ```
 7. Set font and monokai theme to iTerm2
   - Go to iTerm2
