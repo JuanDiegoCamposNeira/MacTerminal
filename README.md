@@ -46,12 +46,13 @@ $ git clone https://github.com/logicseed/monokai-pro-themes  # Clone repo
   - Go to iTerm2
   - Settings/Preferences
   - Profiles
-  - ***Monokai:***
+  - To select ***Monokai Color:***
     - Colors
     - Colors presets
     - Import
     - Import the file on the monokai repo inside of the iTerm2 folder
-  - ***Font:***
+    - Select Monokai Pro Color from "Color Presets" dropdown
+  - To select ***Powerline Font:***
     - Text
     - Font
     - Select the font *Meslo LG M for Powerline*
