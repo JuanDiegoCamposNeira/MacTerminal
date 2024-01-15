@@ -34,8 +34,12 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/t
     ```shell
     ZSH_THEME="powerlevel9k/powerlevel9k"
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time virtualenv)
     POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+    plugins=(
+       …
+       virtualenv
+    )
     ```
 5. Install Autocompletion
    - Clone the repo
