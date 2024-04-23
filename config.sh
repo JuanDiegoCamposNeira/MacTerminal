@@ -13,12 +13,13 @@ else
 fi
 
 # Install iTerm
-if [[ $(brew list iterm2) == '' ]]
+iterm_path="/Applications/iTerm.app"
+if [[ -d "$iterm_path"  ]]
 then
+  echo "iTerm found"
+else
   echo "iTerm not found ... installing iTerm"
   brew install --cask iterm2
-else
-  echo "iTerm found"
 fi
 
 # Install git

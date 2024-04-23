@@ -34,7 +34,7 @@ bash config.sh
   - Go to iTerm settings <code>⌘ ,</code>
   - Profiles → Colors → Import
   - Import the color theme that's in the <code>Downloads</code> folder
-6. Change font
-  - Go to iTerm settings <code>⌘ ,</code>
-  - Profiles → Text → Font
-  - Search for the font <code>MesloLGS NF</code>
+6. Install powerline font
+```shell
+p10k configure
+```
