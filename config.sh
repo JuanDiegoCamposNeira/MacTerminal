@@ -92,5 +92,16 @@ curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/coo
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlightingo
 
+
+# Copy zsh configuration
+cp ./.zshrc ../
+
+# Copy powerline configuration
+cp ./.p10k.zsh ../
+
+# Copy NeoVim configuration
+cp ./nvim ../.cofig/nvim
+
+
 # Source terminal
 source ~/.zshrc
