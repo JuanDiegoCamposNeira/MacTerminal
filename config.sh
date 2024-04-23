@@ -5,6 +5,9 @@ if [[ $(brew --version) == '' ]]
 then
   echo "Homebrew not found ... installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  username=$(whoami)
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$username/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo "Homebrew found"
 fi
