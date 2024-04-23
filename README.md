@@ -13,17 +13,17 @@ This will contain how to cpnfigure your mac terminal with Oh my Zsh.
 To configure your terminal, you just need to run the file ```config.sh```
 1. Cd into your home directory
 ```shell
-    cd ~/
+cd ~/
 ```
 2. Clone this repo into your home directory <code> ~/ </code>
 ```shell
-    git clone https://github.com/JuanDiegoCamposNeira/MacTerminal.git
+git clone https://github.com/JuanDiegoCamposNeira/MacTerminal.git
 ```
 3. Cd into folder
 ```shell
-    cd ~/MacTerminal
+cd ~/MacTerminal
 ```
 4. Run bash config script
 ```shell
-    bash config.sh
+bash config.sh
 ```
