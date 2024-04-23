@@ -104,7 +104,3 @@ cp ./.p10k.zsh ../
 
 # Copy NeoVim configuration
 cp -p -r ./nvim ../.config/
-
-
-# Source terminal
-source ~/.zshrc
