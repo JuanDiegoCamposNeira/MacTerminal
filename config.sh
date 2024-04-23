@@ -16,7 +16,7 @@ fi
 if [[ $(brew list iterm2) == '' ]]
 then
   echo "iTerm not found ... installing iTerm"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew install --cask iterm2
 else
   echo "iTerm found"
 fi
