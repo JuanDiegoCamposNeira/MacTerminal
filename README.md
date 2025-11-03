@@ -33,6 +33,11 @@ cd ~/MacTerminal
 ```shell
 bash config.sh
 ```
+5. Exit the Terminal `⌘ Q` and open iTerm 
+6. Open iTerm and source new changes (If needed)
+```shel
+source-terminal
+```
 
 ### Enabling `Natural Language` key bindings
 1. Open iTerm configs `⌘ ,`
