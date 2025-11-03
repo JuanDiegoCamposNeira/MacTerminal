@@ -130,6 +130,3 @@ cp ./.p10k.zsh ../
 # Copy NeoVim configuration
 echo ">>> Copying Neovim configuration ..."
 cp -p -r ./nvim ../.config/
-
-# Source new configuration
-source ../.zshrc
