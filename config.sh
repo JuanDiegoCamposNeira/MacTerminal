@@ -86,8 +86,6 @@ then
   echo "Current instalation of Oh-My-Zsh was found, if you continue, everything inside ${ZSH} will be erased"
   echo "Do you want to proceed? [y/n]:"
   read remove_zsh_response
-else
-  echo "Oh-My-Zsh not found"
 fi
 
 
@@ -95,6 +93,8 @@ if [[ ${remove_zsh_response} == [yY] ]]
 then
   echo ">>> Removing ${ZSH}"
   rm -rf ${ZSH}
+elif
+  echo ">>> Oh-My-Zsh not found!"
 else
   echo ">>> ${ZSH}/.oh-my-zsh won't be removed, exiting program"
   exit 1
