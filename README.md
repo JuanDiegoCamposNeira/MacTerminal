@@ -46,8 +46,7 @@ bash config.sh
   - Go to `Profiles` → `Colors` → `Color Preset` → `Import...`
   - Import the color theme that's in the `Downloads` folder
 2. Install powerline font by running this command into the terminal
-```shell
-p10k configure
-
-Install Meslo Font? : Y
-```
+  ```shell
+  p10k configure
+  ```
+3. You'll be prompted with `Install Meslo Font?`, answer with `y`
