@@ -12,6 +12,12 @@ This will contain how to cpnfigure your mac terminal with Oh my Zsh.
 - The terminal on the lasts MacOS use <b>zsh</b> as shell.
 - We will use <b><i>[iTerm2](https://iterm2.com)</i></b> as a terminal and <b><i>[Oh my ZSH](https://ohmyz.sh)</i></b> to manage and have a good looking shell prompt.
 
+### Enabling `Natural Language` key bindings
+1. Open iTerm configs with `⌘ ,`
+2. Go to `Profiles` -> `Keys` -> `Key Bindings`
+3. Open `Presets`
+4. Select `Natural Text Editing`
+
 ### Instalation and configuration
 To configure your terminal, you just need to run the file ```config.sh```
 1. Cd into your home directory
@@ -31,9 +37,9 @@ cd ~/MacTerminal
 bash config.sh
 ```
 5. Import Color Preset into iTerm 
-  - Go to iTerm settings <code>⌘ ,</code>
+  - Go to iTerm settings `⌘ ,`
   - Profiles → Colors → Import
-  - Import the color theme that's in the <code>Downloads</code> folder
+  - Import the color theme that's in the `Downloads` folder
 6. Install powerline font
 ```shell
 p10k configure
