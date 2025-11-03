@@ -48,4 +48,6 @@ bash config.sh
 2. Install powerline font by running this command into the terminal
 ```shell
 p10k configure
+
+Install Meslo Font? : Y
 ```
