@@ -90,7 +90,6 @@ else
   remove_zsh_response="NOT_FOUND"
 fi
 
-
 if [[ ${remove_zsh_response} == [yY] ]]; then
   echo ">>> Removing ${ZSH}"
   rm -rf ${ZSH}
@@ -113,9 +112,10 @@ echo ">>> Installing Powerline10K Theme"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 # Install color theme
-downloads_folder="~/Downloads/coolnight.itermcolors" # I couldn't figure out how to extract the folder into a variable, TODO
-echo ">>> Installing color theme to [~/Downloads/coolnight.itermcolors]"
-curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/coolnight.itermcolors --output ~/Downloads/coolnight.itermcolors
+# NOTE: I don't need to install the .itermcolors files anymore, they could live inside the repo
+# downloads_folder="~/Downloads/coolnight.itermcolors" # I couldn't figure out how to extract the folder into a variable, TODO
+# echo ">>> Installing color theme to [~/Downloads/coolnight.itermcolors]"
+# curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/coolnight.itermcolors --output ~/Downloads/coolnight.itermcolors
 
 # Install ZSH plugins
 echo ">>> Installing ZSH pluggins [zsh-autosuggestions, zsh-syntax-highlighting]"

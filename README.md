@@ -45,13 +45,14 @@ source-terminal
 3. Open `Presets`
 4. Select `Natural Text Editing`
 
+### Configuring color theme
+1. Open iTerm configs `⌘ ,`
+2. Go to `Profiles` → `Colors` → `Color Preset` → `Import...`
+3. Import the color themes inside the `iterm_themes` folder of the repo
+
 ### Configuring `p10k`
-1. Import Color Preset into iTerm 
-  - Open iTerm configs `⌘ ,`
-  - Go to `Profiles` → `Colors` → `Color Preset` → `Import...`
-  - Import the color theme that's in the `Downloads` folder
-2. Install powerline font by running this command into the terminal
+1. Install powerline font by running this command into the terminal
   ```shell
   p10k configure
   ```
-3. You'll be prompted with `Install Meslo Font?`, answer with `y`
+2. You'll be prompted with `Install Meslo Font?`, answer with `y`
