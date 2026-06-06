@@ -127,6 +127,8 @@ echo ">>> Creating symlink for Powerline10K configuration ..."
 ln -sf ~/MacTerminal/.p10k.zsh ~/
 
 
-# Copy NeoVim configuration
-echo ">>> Copying Neovim configuration ..."
-cp -p -r ./nvim ../.config/
+# Create symbolic link for NeoVim configuration
+echo ">>> Creating symlink for Neovim configuration ..."
+# TODO: Validate that ~/.config folder exists
+# ln -s <"parent"> <target>
+ln -s ~/MacTerminal/nvim ~/.config/nvim
