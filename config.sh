@@ -49,14 +49,23 @@ else
   echo "Neovim Found"
 fi
 
-# Install Autocompletions
-# if [[ $(brew list ripgrep) == '' ]]
-# then
-#  echo "Ripgrep not found ... installing Ripgrep"
-#  brew install ripgrep
-#else
-#  echo "Ripgrep Found"
-#fi
+# Install Fzf for it to work with nvim
+if [[ $(fzf --version) == '' ]]
+then
+  echo "Fzf not found ... installing fzf"
+  brew install fzf
+else
+  echo "Fzf instalation found, continuing"
+fi
+
+# Installing direnv to handle .env files per project
+if [[ $(direnv --version) ]]
+then
+  echo "Direnv not found ... installing direnv"
+  brew install direnv
+else
+  echo "Direnv installed, continuing"
+fi
 
 # Install Node Version Manager (NVM)
 if [[ ${NVM_DIR} == "" ]]
