@@ -49,6 +49,7 @@ source-terminal
 1. Open iTerm configs `⌘ ,`
 2. Go to `Profiles` → `Colors` → `Color Preset` → `Import...`
 3. Import the color themes inside the `iterm_themes` folder of the repo
+4. The current one I'm using is `catpuchin-frappe`
 
 ### Configuring `p10k`
 1. Install powerline font by running this command into the terminal
