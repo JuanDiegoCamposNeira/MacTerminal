@@ -1,4 +1,4 @@
-return {
+--[[ return {
   "folke/tokyonight.nvim",
   priority = 1000,
   config = function()
@@ -35,4 +35,20 @@ return {
 
     vim.cmd("colorscheme tokyonight")
   end
+} ]]
+
+return {
+	-- add gruvbox
+	{
+		"ellisonleao/gruvbox.nvim",
+		"folke/tokyonight.nvim",
+	},
+
+	-- Configure LazyVim to load gruvbox
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "gruvbox",
+		},
+	},
 }

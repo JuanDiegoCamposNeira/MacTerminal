@@ -1,51 +1,36 @@
 return {
-  "williamboman/mason.nvim",
+  -- 1. Target the core mason plugin already used by LazyVim
+  "mason-org/mason.nvim",
+  
+  -- 2. Pull in your extra installer package safely as a dependency
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
-  config = function()
-    -- import mason
-    local mason = require("mason")
+  
+  -- 3. Use opts to modify LazyVim's default layout instead of rewriting config
+  opts = {
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
+      },
+    },
+  },
+  
+  -- 4. Set up your extra installer inside a clean configuration step
+  config = function(_, opts)
+    -- Run LazyVim's internal setup first using your custom UI icons
+    require("mason").setup(opts)
 
-    -- import mason-lspconfig
-    local mason_lspconfig = require("mason-lspconfig")
-
+    -- Configure your extra tools installer 
     local mason_tool_installer = require("mason-tool-installer")
-
-    -- enable mason and configure icons
-    mason.setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    })
-
-    mason_lspconfig.setup({
-      -- list of servers for mason to install
-      ensure_installed = {
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
-        "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
-        "pyright",
-      },
-    })
-
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
+        "prettier",    -- prettier formatter
+        "stylua",      -- lua formatter
+        "isort",       -- python formatter
+        "black",       -- python formatter
         "pylint",
         "eslint_d",
       },
