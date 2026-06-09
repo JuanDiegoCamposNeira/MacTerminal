@@ -115,16 +115,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/t
 
 # Copy zsh configuration
 cp ./.zshrc ../
+# Create symbolic link for .zshrc
 
 # Install PowerLevel10K Theme
 echo ">>> Installing Powerline10K Theme"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-
-# Install color theme
-# NOTE: I don't need to install the .itermcolors files anymore, they could live inside the repo
-# downloads_folder="~/Downloads/coolnight.itermcolors" # I couldn't figure out how to extract the folder into a variable, TODO
-# echo ">>> Installing color theme to [~/Downloads/coolnight.itermcolors]"
-# curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/coolnight.itermcolors --output ~/Downloads/coolnight.itermcolors
 
 # Install ZSH plugins
 echo ">>> Installing ZSH pluggins [zsh-autosuggestions, zsh-syntax-highlighting]"
