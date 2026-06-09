@@ -1,6 +1,3 @@
-# TODO:
-Create symbolic links instead of copying .zshrc, .p10k.zsh, vim/
-
 # MacTerminal
 This will contain how to cpnfigure your mac terminal with Oh my Zsh.
 
