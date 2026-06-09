@@ -58,8 +58,17 @@ else
   echo "Fzf instalation found, continuing"
 fi
 
+# Install Ripgrep for it to work with nvim
+if [[ $(rg --version) == '' ]]
+then
+  echo "Ripgrep not found ... installing Ripgrep"
+  brew install ripgrep
+else
+  echo "Ripgrep instalation found, continuing"
+fi
+
 # Installing direnv to handle .env files per project
-if [[ $(direnv --version) ]]
+if [[ $(direnv --version) == "" ]]
 then
   echo "Direnv not found ... installing direnv"
   brew install direnv
@@ -114,6 +123,7 @@ echo ">>> Installing Oh-My-Zsh"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Create symbolic link for .zshrc
+echo ">>> Creating symlink for .zshrc configuration file ..."
 ln -snf ~/MacTerminal/.zshrc ~/
 
 # Install PowerLevel10K Theme
@@ -126,12 +136,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Create symbolic link for powerline config
-echo ">>> Creating symlink for Powerline10K configuration ..."
+echo ">>> Creating symlink for Powerline10K configuration file ..."
 ln -snf ~/MacTerminal/.p10k.zsh ~/
 
 
 # Create symbolic link for NeoVim configuration
-echo ">>> Creating symlink for Neovim configuration ..."
+echo ">>> Creating symlink for Neovim configuration file ..."
 # This will try to create the .config folder, if it already exists, it does not create it
 mkdir -p ~/.config
 ln -snf ~/MacTerminal/nvim ~/.config/nvim
