@@ -52,6 +52,7 @@ source-terminal
 4. The current one I'm using is `catpuchin-frappe`
 
 ### Configuring font
+1. Install `Fira Code Nerd Font` by opening all the `.ttf` files inside `fonts`
 1. Open iTerm configs `⌘ ,`
 2. Go to `Profiles` → `Text` → `Font`
 3. Select `Fira Code Nerd Font Mono` - `Medium`
