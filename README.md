@@ -51,9 +51,14 @@ source-terminal
 3. Import the color themes inside the `iterm_themes` folder of the repo
 4. The current one I'm using is `catpuchin-frappe`
 
+### Configuring font
+1. Open iTerm configs `⌘ ,`
+2. Go to `Profiles` → `Text` → `Font`
+3. Select `Fira Code Nerd Font Mono` - `Medium`
+
 ### Configuring `p10k`
 1. Install powerline font by running this command into the terminal
   ```shell
   p10k configure
   ```
-2. You'll be prompted with `Install Meslo Font?`, answer with `y`
+2. You'll be prompted with `Install Meslo Font?`, answer with `n` - use current font
