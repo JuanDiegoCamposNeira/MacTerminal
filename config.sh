@@ -113,9 +113,8 @@ fi
 echo ">>> Installing Oh-My-Zsh"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-# Copy zsh configuration
-cp ./.zshrc ../
 # Create symbolic link for .zshrc
+ln -snf ~/MacTerminal/.zshrc ~/
 
 # Install PowerLevel10K Theme
 echo ">>> Installing Powerline10K Theme"
@@ -128,11 +127,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Create symbolic link for powerline config
 echo ">>> Creating symlink for Powerline10K configuration ..."
-ln -sf ~/MacTerminal/.p10k.zsh ~/
+ln -snf ~/MacTerminal/.p10k.zsh ~/
 
 
 # Create symbolic link for NeoVim configuration
 echo ">>> Creating symlink for Neovim configuration ..."
-# TODO: Validate that ~/.config folder exists
-# ln -s <"parent"> <target>
-ln -s ~/MacTerminal/nvim ~/.config/nvim
+# This will try to create the .config folder, if it already exists, it does not create it
+mkdir -p ~/.config
+ln -snf ~/MacTerminal/nvim ~/.config/nvim
