@@ -1,6 +1,8 @@
 #!/bin/sh
 
+#-----------------------
 # Install Homebrew
+#-----------------------
 if [[ $(brew --version) == '' ]]
 then
   echo "Homebrew not found ... installing Homebrew"
@@ -12,7 +14,10 @@ else
   echo "Homebrew found"
 fi
 
+
+#-----------------------
 # Install iTerm
+#-----------------------
 iterm_path="/Applications/iTerm.app"
 if [[ -d "$iterm_path"  ]]
 then
@@ -22,16 +27,10 @@ else
   brew install --cask iterm2
 fi
 
-# Install git
-if [[ $(git -v) == '' ]]
-then
-  echo "Git not found ... installing Git"
-  brew install git
-else
-  echo "Git found"
-fi
 
+#-----------------------
 # Install x-code developer tools
+#-----------------------
 if [[ $(xcode-select -p) == '' ]]
 then
   echo "xcode-select not found ... installing xcode-select"
@@ -40,37 +39,32 @@ else
   echo "Xcode-select Found"
 fi
 
-# Install Neovim
-# if [[ $(nvim --version) == '' ]]
-# then
-#   echo "Neovim not found ... installing Neovim"
-#   brew install neovim
-# else
-#   echo "Neovim Found"
-# fi
 
-# Install Fzf for it to work with nvim
-# if [[ $(fzf --version) == '' ]]
-# then
-#   echo "Fzf not found ... installing fzf"
-#   brew install fzf
-# else
-#   echo "Fzf instalation found, continuing"
-# fi
+#-----------------------
+# Install Node Version Manager (NVM)
+#-----------------------
+if [[ ${NVM_DIR} == "" ]]
+then
+  echo "NVM not found ... installing NVM"
+  echo $(nvm --version)
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+else
+  echo "NVM Found"
+fi
 
-# TODO: Add other dependencies here to this array
-# 1. Define your array of tools
+
 tools=(
+  "git"
   "nvim"
   "fzf"
   "rg"
   "direnv"
   "fd"
   "lazygit"
-  "ripgrep"
+  # "ripgrep"
+  "pyenv"
 )
 
-# 2. Loop through each tool
 for tool in "${tools[@]}"
 do
   # Check if the command tool exists on your system
@@ -83,44 +77,10 @@ do
   fi
 done
 
-# Install Ripgrep for it to work with nvim
-# if [[ $(rg --version) == '' ]]
-# then
-#   echo "Ripgrep not found ... installing Ripgrep"
-#   brew install ripgrep
-# else
-#   echo "Ripgrep instalation found, continuing"
-# fi
 
-# Installing direnv to handle .env files per project
-# if [[ $(direnv --version) == "" ]]
-# then
-#   echo "Direnv not found ... installing direnv"
-#   brew install direnv
-# else
-#   echo "Direnv installed, continuing"
-# fi
-
-# Install Node Version Manager (NVM)
-if [[ ${NVM_DIR} == "" ]]
-then
-  echo "NVM not found ... installing NVM"
-  echo $(nvm --version)
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-else
-  echo "NVM Found"
-fi
-
-# Install PyEnv
-if [[ $(pyenv --version) == '' ]]
-then
-  echo "PyEnv not found ... installing PyEnv"
-  brew install pyenv
-else
-  echo "PyEnv Found"
-fi
-  
+#-----------------------
 # Install Oh-my-zsh
+#-----------------------
 if [[ ${ZSH} != "" ]]
 then
   echo "--------------------------------------------"
@@ -146,26 +106,37 @@ fi
 # Install Oh-my-zsh
 echo ">>> Installing Oh-My-Zsh"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+#-----------------------
 
+#-----------------------
 # Create symbolic link for .zshrc
+#-----------------------
 echo ">>> Creating symlink for .zshrc configuration file ..."
 ln -snf ~/MacTerminal/.zshrc ~/
 
+#-----------------------
 # Install PowerLevel10K Theme
+#-----------------------
 echo ">>> Installing Powerline10K Theme"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
+#-----------------------
 # Install ZSH plugins
+#-----------------------
 echo ">>> Installing ZSH pluggins [zsh-autosuggestions, zsh-syntax-highlighting]"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+#-----------------------
 # Create symbolic link for powerline config
+#-----------------------
 echo ">>> Creating symlink for Powerline10K configuration file ..."
 ln -snf ~/MacTerminal/.p10k.zsh ~/
 
 
+#-----------------------
 # Create symbolic link for NeoVim configuration
+#-----------------------
 echo ">>> Creating symlink for Neovim configuration file ..."
 # This will try to create the .config folder, if it already exists, it does not create it
 mkdir -p ~/.config
