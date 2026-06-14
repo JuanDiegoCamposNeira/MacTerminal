@@ -1,7 +1,40 @@
 return {
 	"lewis6991/gitsigns.nvim",
+
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
+		signs = {
+			add = { text = "▎" },
+			change = { text = "▎" },
+			delete = { text = "" },
+			topdelete = { text = "" },
+			changedelete = { text = "▎" },
+			untracked = { text = "▎" },
+		},
+		signcolumn = true,
+		numhl = false,
+		linehl = false,
+		word_diff = false,
+
+		-- GitLens-style inline blame at end of current line.
+		current_line_blame = true,
+		current_line_blame_opts = {
+			virt_text = true,
+			virt_text_pos = "eol",
+			delay = 300,
+			ignore_whitespace = false,
+		},
+		current_line_blame_formatter = "  <author>, <author_time:%R> • <summary>",
+
+		-- Pop-up styling for <leader>hp (preview hunk).
+		preview_config = {
+			border = "rounded",
+			style = "minimal",
+			relative = "cursor",
+			row = 0,
+			col = 1,
+		},
+
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
 

@@ -6,8 +6,8 @@ return {
 		options = {
 			offsets = {
 				{
-					filetype = "NvimTree",
-					text = "File Explorer", -- This changes the title text over NvimTree
+					filetype = "snacks_layout_box",
+					text = "File Explorer",
 					separator = true,
 					text_align = "left",
 				},

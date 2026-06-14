@@ -41,40 +41,65 @@ else
 fi
 
 # Install Neovim
-if [[ $(nvim --version) == '' ]]
-then
-  echo "Neovim not found ... installing Neovim"
-  brew install neovim
-else
-  echo "Neovim Found"
-fi
+# if [[ $(nvim --version) == '' ]]
+# then
+#   echo "Neovim not found ... installing Neovim"
+#   brew install neovim
+# else
+#   echo "Neovim Found"
+# fi
 
 # Install Fzf for it to work with nvim
-if [[ $(fzf --version) == '' ]]
-then
-  echo "Fzf not found ... installing fzf"
-  brew install fzf
-else
-  echo "Fzf instalation found, continuing"
-fi
+# if [[ $(fzf --version) == '' ]]
+# then
+#   echo "Fzf not found ... installing fzf"
+#   brew install fzf
+# else
+#   echo "Fzf instalation found, continuing"
+# fi
+
+# TODO: Add other dependencies here to this array
+# 1. Define your array of tools
+tools=(
+  "nvim"
+  "fzf"
+  "rg"
+  "direnv"
+  "fd"
+  "lazygit"
+  "ripgrep"
+)
+
+# 2. Loop through each tool
+for tool in "${tools[@]}"
+do
+  # Check if the command tool exists on your system
+  if [[ $(command -v "$tool") == '' ]]
+  then
+    echo "$tool not found ... installing $tool"
+    brew install "$tool"
+  else
+    echo "$tool installation found, continuing"
+  fi
+done
 
 # Install Ripgrep for it to work with nvim
-if [[ $(rg --version) == '' ]]
-then
-  echo "Ripgrep not found ... installing Ripgrep"
-  brew install ripgrep
-else
-  echo "Ripgrep instalation found, continuing"
-fi
+# if [[ $(rg --version) == '' ]]
+# then
+#   echo "Ripgrep not found ... installing Ripgrep"
+#   brew install ripgrep
+# else
+#   echo "Ripgrep instalation found, continuing"
+# fi
 
 # Installing direnv to handle .env files per project
-if [[ $(direnv --version) == "" ]]
-then
-  echo "Direnv not found ... installing direnv"
-  brew install direnv
-else
-  echo "Direnv installed, continuing"
-fi
+# if [[ $(direnv --version) == "" ]]
+# then
+#   echo "Direnv not found ... installing direnv"
+#   brew install direnv
+# else
+#   echo "Direnv installed, continuing"
+# fi
 
 # Install Node Version Manager (NVM)
 if [[ ${NVM_DIR} == "" ]]
