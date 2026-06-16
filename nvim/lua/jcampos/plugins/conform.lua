@@ -25,8 +25,9 @@ return {
 			markdown = { "prettier" },
 			graphql = { "prettier" },
 			liquid = { "prettier" },
-			-- lua = { "stylua" },
+			lua = { "stylua" },
 			python = { "ruff_organize_imports", "ruff_format" },
+			fish = { "shfmt" },
 		},
 	},
 }

@@ -1,57 +1,49 @@
-#!/bin/sh
+#!/bin/bash
 
 #-----------------------
 # Install Homebrew
 #-----------------------
-if [[ $(brew --version) == '' ]]
-then
+if [[ $(brew --version) == '' ]]; then
   echo "Homebrew not found ... installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   username=$(whoami)
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$username/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/$username/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo "Homebrew found"
 fi
 
-
 #-----------------------
 # Install iTerm
 #-----------------------
 iterm_path="/Applications/iTerm.app"
-if [[ -d "$iterm_path"  ]]
-then
+if [[ -d "$iterm_path" ]]; then
   echo "iTerm found"
 else
   echo "iTerm not found ... installing iTerm"
   brew install --cask iterm2
 fi
 
-
 #-----------------------
 # Install x-code developer tools
 #-----------------------
-if [[ $(xcode-select -p) == '' ]]
-then
+if [[ $(xcode-select -p) == '' ]]; then
   echo "xcode-select not found ... installing xcode-select"
   xcode-select --install
 else
   echo "Xcode-select Found"
 fi
 
-
 #-----------------------
 # Install Node Version Manager (NVM)
 #-----------------------
-if [[ ${NVM_DIR} == "" ]]
-then
+if [[ ${NVM_DIR} == "" ]]; then
   echo "NVM not found ... installing NVM"
   echo $(nvm --version)
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 else
   echo "NVM Found"
 fi
-
 
 tools=(
   "git"
@@ -61,15 +53,12 @@ tools=(
   "direnv"
   "fd"
   "lazygit"
-  # "ripgrep"
   "pyenv"
 )
 
-for tool in "${tools[@]}"
-do
+for tool in "${tools[@]}"; do
   # Check if the command tool exists on your system
-  if [[ $(command -v "$tool") == '' ]]
-  then
+  if [[ $(command -v "$tool") == '' ]]; then
     echo "$tool not found ... installing $tool"
     brew install "$tool"
   else
@@ -77,12 +66,10 @@ do
   fi
 done
 
-
 #-----------------------
 # Install Oh-my-zsh
 #-----------------------
-if [[ ${ZSH} != "" ]]
-then
+if [[ ${ZSH} != "" ]]; then
   echo "--------------------------------------------"
   echo "|                  WARNING                  |"
   echo "--------------------------------------------"
@@ -132,7 +119,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 #-----------------------
 echo ">>> Creating symlink for Powerline10K configuration file ..."
 ln -snf ~/MacTerminal/.p10k.zsh ~/
-
 
 #-----------------------
 # Create symbolic link for NeoVim configuration

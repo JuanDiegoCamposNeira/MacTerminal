@@ -17,29 +17,13 @@ return {
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
 
-				opts.desc = "Show LSP references"
-				keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-
-				opts.desc = "Go to declaration"
-				keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-				opts.desc = "Show LSP definitions"
-				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-
-				opts.desc = "Show LSP implementations"
-				keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-
-				opts.desc = "Show LSP type definitions"
-				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+				-- Navigation (gd, gD, gr, gI, gy) are handled by snacks.lua pickers
 
 				opts.desc = "See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-				opts.desc = "Show buffer diagnostics"
-				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
 				opts.desc = "Show line diagnostics"
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
@@ -81,9 +65,9 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"graphql",
-				"vtsls",    -- TypeScript / JavaScript / React
-				"pyright",  -- Python / Django (type checking)
-				"ruff",     -- Python linting + formatting diagnostics
+				"vtsls", -- TypeScript / JavaScript / React
+				"pyright", -- Python / Django (type checking)
+				"ruff", -- Python linting + formatting diagnostics
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -138,12 +122,14 @@ return {
 					lspconfig.pyright.setup({
 						capabilities = capabilities,
 						settings = {
+							pyright = {
+								disableOrganizeImports = true, -- Let Ruff organize imports
+							},
 							python = {
 								analysis = {
 									typeCheckingMode = "basic",
 									autoSearchPaths = true,
 									useLibraryCodeForTypes = true,
-									-- Only report on open files to keep Django projects fast
 									diagnosticMode = "openFilesOnly",
 								},
 							},
@@ -154,8 +140,7 @@ return {
 				["ruff"] = function()
 					lspconfig.ruff.setup({
 						capabilities = capabilities,
-						on_attach = function(client, _)
-							-- Disable ruff's hover in favour of pyright's richer hover docs
+						on_init = function(client, _)
 							client.server_capabilities.hoverProvider = false
 						end,
 					})
